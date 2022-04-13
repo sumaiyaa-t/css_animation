@@ -1,0 +1,102 @@
+.parent {
+    background-color: hsla(200, 100%, 20%);
+    height: 200px;
+    width: 200px;
+}
+
+.child {
+    background-color: tomato;
+    height: 50%;
+    width: 50%;
+
+    /*transition: transform 1s linear;
+    evenly spaced between the start and the end of the animation*/
+
+    /*transition: transform 1s ease-in-out; 
+    starts slow, speeds up in the middle, ends slow*/
+
+    /*transition: transform 1s cubic-bezier(0.51, 0.02, 0.82, 1.35);*/
+    animation: left-to-right 1s ease-in forwards infinite alternate;
+
+
+}
+
+.parent:hover .child {
+    background-color: rgb(226, 181, 188);
+    /* animation: left-to-right 1s ease-in forwards; */
+
+    /* animation: left-to-right 1s ease-in forwards 3; 
+   animate 3 times*/
+
+    /* animation: left-to-right 1s ease-in forwards 3 alternate;
+  alternate specify directions*/
+
+    /*animation: left-to-right 1s ease-in forwards 3 alternate 4s; 
+  4s delay*/
+
+    animation-play-state: paused;
+}
+
+/*Animation Property*/
+
+@keyframes left-to-right {
+    0% {
+        transform: translateX(0);
+    }
+
+    33% {
+        transform: translateY(100%);
+    }
+
+    66% {
+        transform: translateX(100%) translateY(100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+
+    }
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: slateblue;
+    padding: 8px;
+    display: grid;
+    place-content: center;
+    color: white;
+    text-align: center;
+
+    margin-top: 20px;
+    animation: slide-in 1s;
+
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/*Looped Animation Spinner*/
+.spinner{
+    margin-top: 20px;
+    display: block;
+    animation: spin 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
